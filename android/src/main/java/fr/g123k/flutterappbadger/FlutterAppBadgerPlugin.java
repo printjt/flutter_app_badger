@@ -7,11 +7,10 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.MethodCall;
+import io.flutter.plugin.common.BinaryMessenger; // Add this import
+import io.flutter.plugin.common.MethodCodec; // Add this import
 import me.leolin.shortcutbadger.ShortcutBadger;
 
-/**
- * FlutterAppBadgerPlugin - V2 embedding implementation
- */
 public class FlutterAppBadgerPlugin implements FlutterPlugin, MethodCallHandler {
     private static final String CHANNEL_NAME = "g123k/flutter_app_badger";
     
@@ -27,11 +26,11 @@ public class FlutterAppBadgerPlugin implements FlutterPlugin, MethodCallHandler 
     }
 
     private void setupChannel(
-        @NonNull MethodChannel.MethodCodec codec,
+        @NonNull BinaryMessenger messenger, // Changed from MethodCodec to BinaryMessenger
         @NonNull Context context
     ) {
         this.applicationContext = context;
-        this.channel = new MethodChannel(codec, CHANNEL_NAME);
+        this.channel = new MethodChannel(messenger, CHANNEL_NAME);
         this.channel.setMethodCallHandler(this);
     }
 
