@@ -13,7 +13,6 @@ dependencies:
 
 flutter:
   plugin:
-    implements: app_badge
     platforms:
       android:
         package: fr.g123k.flutterappbadger
@@ -21,10 +20,4 @@ flutter:
       ios:
         pluginClass: FlutterAppBadgerPlugin
       macos:
-        pluginClass: FlutterAppBadgerPlugin
-      windows:
-        pluginClass: FlutterAppBadgerPlugin
-      linux:
-        pluginClass: FlutterAppBadgerPlugin
-      web:
         pluginClass: FlutterAppBadgerPlugin
